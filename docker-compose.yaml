@@ -5,13 +5,13 @@ services:
       dockerfile: ./backend/Dockerfile
     container_name: backend    
     ports:
-      - 80:80        
+      - 81:81        
 
   frontend:
     build:      
       dockerfile: ./frontend/Dockerfile
     container_name: frontend
     ports:
-      - 3000:3000    
+      - 80:80    
     depends_on:
       - backend

@@ -1,6 +1,6 @@
 FROM node:18.18.0
 
-ENV PORT 3000
+ENV PORT 80
 
 RUN mkdir -p /usr/src/frontend
 WORKDIR /usr/src/frontend
@@ -14,6 +14,6 @@ RUN npm install vite @esbuild/linux-x64
 
 
 
-EXPOSE 3000/tcp
+EXPOSE 80/tcp
 
 CMD ["npm", "run", "dev:node", "--host", "0.0.0.0"]
