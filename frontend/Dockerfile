@@ -1,6 +1,6 @@
 FROM node:18.18.0
 
-ENV PORT 8888
+ENV PORT 3000
 
 RUN mkdir -p /usr/src/frontend
 WORKDIR /usr/src/frontend
@@ -8,7 +8,12 @@ WORKDIR /usr/src/frontend
 COPY ./frontend .
 
 RUN npm install
+RUN npm cache clean --force
+RUN npm install vite @esbuild/linux-x64
 
-EXPOSE 8888
 
-CMD "npm" "run" "dev:node"
+
+
+EXPOSE 3000/tcp
+
+CMD ["npm", "run", "dev:node", "--host", "0.0.0.0"]
